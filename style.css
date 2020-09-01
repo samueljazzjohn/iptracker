@@ -1,0 +1,20 @@
+#header{
+    background-image: url("./images/pattern-bg.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+img{
+    width: 0.5em;
+    height: 0.5em;
+
+
+}
+#imgbackground{
+    width: 2.5em;
+    background-color: black;
+    border-radius: 0 6px 6px 0;
+}
+#mapid { 
+    height: 50em; 
+}
