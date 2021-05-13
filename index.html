@@ -1,70 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-  <title>Frontend Mentor | IP Address Tracker</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <title>IP Address Tracker</title>
   <link rel="stylesheet" href="style.css">
   <!-- leaflet's css file -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
-  integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-  crossorigin=""/>
-   <!-- leaflet's js file -->
- <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
- integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
- crossorigin=""></script>
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin="" />
+
+  <!-- leaflet's js file -->
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
   <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
   </style>
+
 </head>
+
 <body>
   <div class="container p-3">
-    <div class="container-fluid">
-      <div class="container m-2" id="header">
-       
+    <div class=" container-fluid">
+
+      <div class="container mt-0 mt-md-3 " id="header">
+
         <div class="row">
-          <div class="col-12" > 
-            <p class="text-center p-4 text-white" >IP Address Tracker</p> 
+          <div class="col-12">
+            <h3 class="text-center pt-2 pt-md-5 text-white">IP Address Tracker</h3>
           </div>
         </div>
-               
+
         <div class="row pb-4">
-          <div class="col-4 mx-auto center-align" > 
-            <div class="input-group mb-3" >
-              <input type="text" class="form-control" placeholder="Search">
-              <div class="input-group-append" id="imgbackground">
-                <img src="./images/icon-arrow.svg"  alt="" class="align-middle mt-3 ml-3">
+          <div class="col-8 col-md-5 mx-auto center-align">
+            <form>
+              <div class="input-group mb-1 mb-md-3">
+                <input type="text" class="form-control" placeholder="Search for any ip address or domain" id="ip">
+                <button onclick="event.preventDefault();getLocation(document.getElementById('ip').value);"
+                  value="submit" class="btn input-group-append" id="imgbackground">
+                  <!-- onsubmit="event.preventDefault();" -->
+                  <img src="./images/icon-arrow.svg" alt="" class=" align-middle mt-3 ml-3">
+                </button>
               </div>
-            </div>
+            </form>
           </div>
         </div>
       </div>
-      
-        <div class="row">
-            <div class="col-12">
-              <div id="mapid"></div>
-            </div>
+
+      <div class="row">
+        <div class="col-12">
+          <div id="mapid"></div>
         </div>
+      </div>
+
 
     </div>
   </div>
-
-
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+  <div class="panel-container">
+    <div class="panel">
+      <div class="box">
+        <p align="center">IP ADDRESS</p>
+        <h4 align="center" id="ipa" value="ip">_________</h4>
+      </div>
+      <div class="box">
+        <p align="center">LOCATION</p>
+        <h4 align="center" id="loc" value="loc">_________</h4>
+      </div>
+      <div class="box">
+        <p align="center">TIMEZONE</p>
+        <h4 align="center" id="time" value="time">_________</h4>
+      </div>
+      <div class="box">
+        <p align="center">ISP</p>
+        <h4 align="center" id="isp" value="isp">_________</h4>
+      </div>
+    </div>
   </div>
+
+  <div class="attribution">
+    <!-- Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. -->
+    Developed by <a href="#">Samuel jazz john</a>.
+  </div>
+  <script src="script.js"></script>
   <!-- JS, Popper.js, and jQuery -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
 </body>
+
 </html>
 
 

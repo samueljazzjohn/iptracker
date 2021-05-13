@@ -1,10 +1,23 @@
+* {
+    box-sizing: border-box;
+  }
+body,html{
+    height:100vh;
+    width: 100%;
+}
 #header{
     background-image: url("./images/pattern-bg.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    height: 35vh;
+    /* z-index: -1; */
 }
 img{
+    /* display: flex;
+    justify-content:center;
+    margin: auto; */
+    transform: translate(-11px,-7px) ;
     width: 0.5em;
     height: 0.5em;
 
@@ -16,5 +29,141 @@ img{
     border-radius: 0 6px 6px 0;
 }
 #mapid { 
-    height: 50em; 
+    cursor: text;
+    display: block;
+    position: relative;
+    height:50vh; 
+    /* z-index: -1; */
 }
+h3{
+    font-size: 20px;
+    font-weight: 900;
+}
+
+@media  screen  and (max-width: 420px){
+    .panel-container{
+        margin: auto;
+        background-color: white;
+        padding: 0.5em 0.5em;
+        width: 60%;
+        position: absolute;
+        perspective: 4em;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        top: 15%;
+        left: 20%;
+        z-index: 12535;
+        border-radius: 8px;
+        pointer-events: none;
+    }
+    .panel{
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+
+    }
+    .box{
+        width: 100%;
+        justify-content: center;
+    }
+    p{
+        padding:0;
+        color: grey;
+        transform: translateY(15px);
+        font-size: 7px;
+        letter-spacing: 2px;
+        font-weight: 1000;
+    }
+    h4{
+        font-size: 18px;
+        font-weight:900;
+
+    }
+
+}
+@media  screen  and (max-width: 800px) and (min-width:420px){
+    .panel-container{
+        margin: auto;
+        background-color: white;
+        padding: 0.5em 0.5em;
+        width: 60%;
+        position: absolute;
+        perspective: 4em;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        top: 20%;
+        left: 20%;
+        z-index: 12535;
+        border-radius: 8px;
+        pointer-events: none;
+    }
+    .panel{
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+
+    }
+    .box{
+        width: 100%;
+        justify-content: center;
+    }
+    p{
+        padding:0;
+        color: grey;
+        transform: translateY(15px);
+        font-size: 7px;
+        letter-spacing: 2px;
+        font-weight: 1000;
+    }
+    h4{
+        font-size: 18px;
+        font-weight:900;
+
+    }
+
+}
+
+@media  screen  and (min-width: 800px) {
+    .panel-container{
+        margin: auto;
+        background-color: white;
+        padding: 1.5em 1em;
+        width: 60%;
+        position: absolute;
+        perspective: 4em;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        top: 29%;
+        left: 20%;
+        height: 7em;
+        z-index: 12535;
+        border-radius: 8px;
+        pointer-events: none;
+    }
+    .panel{
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+
+    }
+    .box{
+        width: 25%;
+        justify-content: center;
+        border-right: 1px solid #b7b7b757;
+    }
+    .box:nth-child(4){
+        border-right: none;
+    }
+    p{
+        padding:0;
+        color: grey;
+        transform: translateY(15px);
+        font-size: 10px;
+        font-weight: 50px;
+    }
+    h4{
+        font-size: 20px;
+        font-weight:900;
+        height: 1.4em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
