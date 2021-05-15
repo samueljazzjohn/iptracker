@@ -68,7 +68,7 @@ h3{
         cursor: text;
         display: block;
         position: relative;
-        height:66vh; 
+        min-height:66vh; 
     }
     #header{
         padding-top: 1em;
@@ -76,7 +76,7 @@ h3{
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
-        height: 30vh;
+        min-height: 30vh;
     }
     #map-container #map-wrap-container {
         width: 100%;
@@ -127,7 +127,7 @@ h3{
         cursor: text;
         display: block;
         position: relative;
-        height:50vh; 
+        min-height:50vh; 
         /* z-index: -1; */
     }
     #header{
@@ -135,7 +135,7 @@ h3{
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
-        height: 35vh;
+        min-height: 35vh;
     }
 
 }
@@ -188,14 +188,14 @@ h3{
         cursor: text;
         display: block;
         position: relative;
-        height:50vh; 
+        min-height:50vh; 
     }
     #header{
         background-image: url("./images/pattern-bg.png");
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
-        height: 35vh;
+        min-height: 35vh;
     }
     #map-container #map-wrap-container {
         width: 100%;
@@ -204,3 +204,6 @@ h3{
     }
 }
 
+body .swal2-container {
+    z-index: 30052;
+  }

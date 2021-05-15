@@ -77,6 +77,8 @@ if (navigator.geolocation) {
 
 //function for getting location,timezone and isp of given ip address
 let getLocation = (a) => {
+  if (/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(a))
+  {
   let link = " https://ipapi.co/"
   link += a + "/json"
   var request = new XMLHttpRequest();
@@ -106,4 +108,13 @@ let getLocation = (a) => {
   };
 
   request.send();
+}
+else{
+  Swal.fire({
+    icon: 'error',
+    // title: 'Oops...',
+    text: 'Please enter valid IP Address!',
+    customClass: "swal-modal"
+  })
+}
 };
