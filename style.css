@@ -24,9 +24,6 @@ h3{
     font-size: 20px;
     font-weight: 900;
 }
-#map-container{
-    width: 100%;
-}
 
 @media  screen  and (max-width: 420px){
     .panel-container{
@@ -80,6 +77,11 @@ h3{
         background-repeat: no-repeat;
         background-size: cover;
         height: 30vh;
+    }
+    #map-container #map-wrap-container {
+        width: 100%;
+        padding: 0;
+        margin: 0;
     }
 
 }
@@ -187,7 +189,6 @@ h3{
         display: block;
         position: relative;
         height:50vh; 
-        /* z-index: -1; */
     }
     #header{
         background-image: url("./images/pattern-bg.png");
@@ -195,6 +196,11 @@ h3{
         background-repeat: no-repeat;
         background-size: cover;
         height: 35vh;
+    }
+    #map-container #map-wrap-container {
+        width: 100%;
+        padding: 0;
+        margin: 0;
     }
 }
 
