@@ -11,7 +11,7 @@ var licon = L.icon({
 
 var marker = L.marker([9.893099, 76.278076], {
   riseOnHover: true,
-  draggable: true,
+  // draggable: true,
   icon: licon,
 }).addTo(map);
 
@@ -77,8 +77,8 @@ if (navigator.geolocation) {
 
 //function for getting location,timezone and isp of given ip address
 let getLocation = (a) => {
-  let link = "http://ip-api.com/json/"
-  link += a
+  let link = " https://ipapi.co/"
+  link += a + "/json"
   var request = new XMLHttpRequest();
 
   request.open("GET", link);
@@ -89,19 +89,19 @@ let getLocation = (a) => {
     if (this.readyState === 4) {
       var json = JSON.parse(this.responseText);
       let latLng = {
-        lat: json.lat,
-        lng: json.lon
+        lat: json.latitude,
+        lng: json.longitude
       };
       console.log(json);
       marker.setLatLng(latLng)
       popup.setLatLng(latLng);
-      popup.setContent("This is ip's location is " + json.city + " <br>And your isp is: " + json.isp);
+      popup.setContent("The location is " + json.city + " <br>And your isp is: " + json.org);
       popup.openOn(map);
       map.setView(latLng);
       document.getElementById("ipa").innerHTML = a
       document.getElementById("loc").innerHTML = json.city
       document.getElementById("time").innerHTML = json.timezone
-      document.getElementById("isp").innerHTML = json.isp
+      document.getElementById("isp").innerHTML = json.org
     }
   };
 
