@@ -2,20 +2,12 @@
     box-sizing: border-box;
   }
 body,html{
+    padding: 0;
+    margin: 0;
     height:100vh;
     width: 100%;
 }
-/* #header{
-    background-image: url("./images/pattern-bg.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 35vh;
-} */
 img{
-    /* display: flex;
-    justify-content:center;
-    margin: auto; */
     transform: translate(-11px,-7px) ;
     width: 0.5em;
     height: 0.5em;
@@ -27,15 +19,13 @@ img{
     background-color: black;
     border-radius: 0 6px 6px 0;
 }
-/* #mapid { 
-    cursor: text;
-    display: block;
-    position: relative;
-    height:50vh; 
-} */
+
 h3{
     font-size: 20px;
     font-weight: 900;
+}
+#map-container{
+    width: 100%;
 }
 
 @media  screen  and (max-width: 420px){
@@ -81,7 +71,7 @@ h3{
         cursor: text;
         display: block;
         position: relative;
-        height:67vh; 
+        height:66vh; 
     }
     #header{
         padding-top: 1em;
